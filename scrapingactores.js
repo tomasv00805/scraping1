@@ -1,15 +1,17 @@
-const actors = require('comedy');
-const puppeteer = require('puppeteer');
+import comedy from "comedy";
+import puppeteer from "puppeteer";
+import {scraplocal, scrapremoto} from "./scraping.js";
 
+const actors = comedy
 class LocalActor {
   showMessage() {
-    return "pc";
+    return scraplocal();
   }
 }
 
 class RemoteActor {
   showMessage() {
-    return "laptop";
+    return scrapremoto();
   }
 }
 
@@ -25,7 +27,7 @@ async function main() {
     console.log('Local Actor Message:', localMessage);
 
     // Crear un actor remoto para mostrar el mensaje "laptop".
-    const remoteActor = await rootActor.createChild(RemoteActor, { mode: 'remote', host: '192.168.1.41' });
+    const remoteActor = await rootActor.createChild(RemoteActor, { mode: 'remote', host: '192.168.0.105' });
     const remoteMessage = await remoteActor.sendAndReceive('showMessage');
     console.log('Remote Actor Message:', remoteMessage);
   } catch (err) {

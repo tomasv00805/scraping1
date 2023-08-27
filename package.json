@@ -2,9 +2,10 @@
   "name": "scraping",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "scrapingactores.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon scrapingactores.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
     "cheerio": "^1.0.0-rc.12",
     "comedy": "^2.1.7",
     "puppeteer": "^21.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
