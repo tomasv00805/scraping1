@@ -1,6 +1,6 @@
-import puppeteer from "puppeteer";
+const puppeteer = require('puppeteer');
 
-export  async function scraplocal() {
+async function scraplocal() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -22,7 +22,7 @@ export  async function scraplocal() {
   return pricesArray;
 }
 
-export  async function scrapremoto(){
+async function scrapremoto(){
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -46,4 +46,11 @@ export  async function scrapremoto(){
   return pricesArray;
 }
 
+module.exports = {
+  scraplocal,
+  scrapremoto
+};
+
+resultado=scrapremoto()
+console.log(resultado)
 
