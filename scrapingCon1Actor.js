@@ -2,7 +2,7 @@ const comedy = require("comedy");//se importa la libreria de actores
 const puppeteer = require("puppeteer");// se importa la libreria de scraping
 const { scraplocal, scrapremoto,scraplocal2,scraplocal3  } = require("./scraping.js");
 //se importan las funciones
-const actors = comedy;//se inicializa un actor
+const actors = comedy;//se iniando los actres
 
 class LocalActor {//se crea la clase de actor local
   async scrap1() {
