@@ -144,9 +144,9 @@ async function main() {
     console.log('Local Actor Message:', semana1Enerobesty);
 
     // Crear un actor remoto para mostrar el mensaje "laptop".
-    const remoteActor = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'cambia esto' });
-    const remoteActor2 = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'cambia esto' });
-    const remoteActor3 = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'cambia esto' });
+    const remoteActor = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'ip1' });
+    const remoteActor2 = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'ip2' });
+    const remoteActor3 = await rootActor.createChild(RemoteActor, { mode: 'remote', host: 'ip3' });
     const semana1Enero = await remoteActor.sendAndReceive('scrapremoto3');
     const semana2Enero = await remoteActor2.sendAndReceive('scrapremoto');
     const semana3Enero = await remoteActor3.sendAndReceive('scrapremoto2');

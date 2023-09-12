@@ -1,27 +1,27 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');//Imporar la libreria de scraping
 
-async function scraplocal() {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-
+async function scraplocal() {//Segunda semana de enero
+  const browser = await puppeteer.launch();//abre un motor de busqueda
+  const page = await browser.newPage();//abre una pagina web
+  //url para el scraping
   const url = 'https://www.thebetsyhotel.com/book?adults=2&children=0&clientId=thebetsy&currency=USD&endDate=2024-01-13&exactMatchOnly=false&hotelCode=63570&hotelProvider=1&numRooms=1&primaryLangId=en&startDate=2024-01-07&theme=null';
-  const targetClassName = 'price';
+  const targetClassName = 'price';//string con el nombre de la clase que queremos scrapear
 
-  await page.goto(url);
-  await page.waitForSelector(`.${targetClassName}`);
+  await page.goto(url);//que la pagina se direccione a la url solicitada
+  await page.waitForSelector(`.${targetClassName}`);//busca las clase precios
 
-  const elements = await page.$$(`.${targetClassName}`);
+  const elements = await page.$$(`.${targetClassName}`);//almacena las clase precios
   const pricesArray = [];
 
   for (const element of elements) {
-    const text = await element.evaluate(el => el.textContent);
-    pricesArray.push(text);
+    const text = await element.evaluate(el => el.textContent);//guardar el texto que se encuentra en la clase precio
+    pricesArray.push(text);//se guarda en el array
   }
 
-  await browser.close();
-  return pricesArray;
+  await browser.close();//cierra el navegador
+  return pricesArray;//retornea el array de precios
 }
-async function scraplocal2() {
+async function scraplocal2() {//Tercer semana de enero
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -42,7 +42,7 @@ async function scraplocal2() {
   await browser.close();
   return pricesArray;
 }
-async function scraplocal3() {
+async function scraplocal3() {//primer semana de enerAo
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -93,7 +93,3 @@ module.exports = {
   scraplocal2,
   scraplocal3
 };
-
-resultado=scrapremoto()
-console.log(resultado)
-
